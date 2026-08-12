@@ -1,0 +1,31 @@
+name: Keep All Microservices Alive
+
+on:
+  schedule:
+    # Runs every Wednesday and Sunday at midnight (UTC)
+    - cron: '0 0 * * 0,3'
+  # Allows manual execution anytime from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  ping-services:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping All Microservice DBs
+        run: |
+          echo "Pinging Profile Service..."
+          curl -s -f https://otter-profile-service-5pdwx2srkq-ew.a.run.app/profiles/3 > /dev/null || echo "Profile service ping failed"
+
+          echo "Pinging Recommendation Service..."
+          curl -s -f -X POST -H "Content-Type: application/json" -d '{}' https://otter-recommendation-service-5pdwx2srkq-ew.a.run.app/recommendations/restaurants > /dev/null || echo "Recommendation service ping failed"
+
+          echo "Pinging Driver Service..."
+          curl -s -f https://otter-driver-service-5pdwx2srkq-ew.a.run.app/orders/57/tracking > /dev/null || echo "Driver service ping failed"
+
+          echo "Pinging Restaurant Service..."
+          curl -s -f https://otter-restaurant-service-5pdwx2srkq-ew.a.run.app/api/restaurants > /dev/null || echo "Restaurant service ping failed"
+
+          echo "Pinging Order Service..."
+          curl -s -f https://otter-order-service-5pdwx2srkq-ew.a.run.app/orders/3 > /dev/null || echo "Order service ping failed"
+
+          echo "All 5 microservice pings executed successfully!"
