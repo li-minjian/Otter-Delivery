@@ -24,7 +24,7 @@ In the later phase of the project, we researched serverless and managed cloud de
 
 Overall, we are proud that the final result is not just a set of services, but a working food delivery application that can be used through a deployed frontend and demonstrates a realistic end-to-end workflow.
 
-## Work Distribution
+<!-- ## Work Distribution
 
 Work was distributed roughly by service and based on voluntary self-selection within the team. At the beginning of the project, each team member chose the areas and services they wanted to focus on, depending on their interests.
 
@@ -39,7 +39,7 @@ Work was distributed roughly by service and based on voluntary self-selection wi
 We used ChatGPT for early research, architectural discussions, debugging support, test design, and code review suggestions. Figma was used for frontend design, and Figma-related tooling support was used to refine UI ideas and export initial frontend code, which was then manually reviewed, adapted, and integrated into the React/Vite application. We also used ChatGPT and  to help generate mock restaurant, menu, and demo content.
 
 The final architecture, service boundaries, implementation decisions, integration work, deployment configuration, testing, and validation were carried out and reviewed by the team. AI-generated outputs were treated as suggestions and were manually checked, modified, and tested before being included in the project.
-
+-->
 ## How to Run the Project
 
 The project can be run locally with Docker Compose.
