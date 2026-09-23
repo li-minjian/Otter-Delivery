@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import CartDrawer from "./components/cart/CartDrawer.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import Navbar from "./components/layout/Navbar.jsx";
@@ -76,6 +77,7 @@ function AppLayout() {
       {isTransactionalRoute ? null : (
         <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       )}
+      <Analytics />
     </div>
   );
 }
